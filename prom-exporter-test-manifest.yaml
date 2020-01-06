@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prom-exporter-test
+  labels:
+    app: prom-exporter-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prom-exporter-test
+  template:
+    metadata:
+      labels:
+        app: prom-exporter-test
+    spec:
+      containers:
+      - name: prom-exporter-test
+        image: prom-exporter-test:latest
+        ports:
+        - containerPort: 8000
